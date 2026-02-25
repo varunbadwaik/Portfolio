@@ -15,8 +15,8 @@ const projects = [
         techStack: ["Python", "FastAPI", "LangChain", "ChromaDB", "Streamlit", "OpenAI"],
         category: "AI",
         featured: true,
-        liveUrl: "#",
-        githubUrl: "#",
+        liveUrl: "https://agent-iq-ai-knowledge-assistant-mai.vercel.app/",
+        githubUrl: "https://github.com/varunbadwaik/AgentIQ-AI-Knowledge-Assistant",
     },
     {
         title: "Active-Scholar AI Research Agent",
@@ -27,8 +27,8 @@ const projects = [
         techStack: ["Python", "LangGraph", "LangChain", "FastAPI"],
         category: "AI",
         featured: true,
-        liveUrl: "#",
-        githubUrl: "#",
+        liveUrl: "https://active-scholar-ai-research-agent.vercel.app/",
+        githubUrl: "https://github.com/varunbadwaik/Active-Scholar-AI-Research-Agent",
     },
     {
         title: "HR Attrition Analysis & Reporting",
@@ -40,7 +40,7 @@ const projects = [
         category: "Data",
         featured: false,
         liveUrl: "",
-        githubUrl: "#",
+        githubUrl: "https://github.com/varunbadwaik/HR_Attrition",
     },
     {
         title: "Prime Video Dashboard",
@@ -52,7 +52,7 @@ const projects = [
         category: "Data",
         featured: false,
         liveUrl: "",
-        githubUrl: "#",
+        githubUrl: "https://github.com/varunbadwaik/Prime-Video",
     },
     {
         title: "IoT Solar Monitoring System",
@@ -64,7 +64,7 @@ const projects = [
         category: "IoT",
         featured: false,
         liveUrl: "",
-        githubUrl: "#",
+        githubUrl: "https://github.com/varunbadwaik",
     },
 ];
 
