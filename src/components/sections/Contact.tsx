@@ -62,17 +62,27 @@ export default function Contact() {
 
         setStatus("sending");
 
-        // EmailJS integration placeholder
-        // To enable real email sending, replace with:
-        // import emailjs from '@emailjs/browser';
-        // emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData, 'YOUR_PUBLIC_KEY');
+        try {
+            const response = await fetch("https://formspree.io/f/xbdabrqa", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
 
-        // Simulating send for demo
-        setTimeout(() => {
-            setStatus("sent");
-            setFormData({ name: "", email: "", subject: "", message: "" });
-            setTimeout(() => setStatus("idle"), 5000);
-        }, 1500);
+            if (response.ok) {
+                setStatus("sent");
+                setFormData({ name: "", email: "", subject: "", message: "" });
+                setTimeout(() => setStatus("idle"), 5000);
+            } else {
+                setStatus("error");
+            }
+        } catch (error) {
+            console.error("Form submission error:", error);
+            setStatus("error");
+        }
     };
 
     return (
