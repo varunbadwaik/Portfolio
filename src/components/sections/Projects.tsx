@@ -7,6 +7,18 @@ const projectCategories = ["All", "AI", "Data", "IoT"];
 
 const projects = [
     {
+        title: "The Analyst — AI Data Intelligence",
+        description:
+            "AI-powered data intelligence platform that cleans, analyzes, visualizes, and exports datasets using free LLM models via OpenRouter.",
+        longDescription:
+            "Built a full-stack AI-powered data analysis platform using React and Vite. Upload CSV, JSON, Excel, or TXT files and let AI automatically clean, analyze, and visualize your data. Features include interactive Chart.js dashboards (bar, line, pie, doughnut, radar, polar area charts), KPI cards, AI-powered chat for asking questions about your data, Excel export, and a premium dark glassmorphism UI with light/dark mode toggle.",
+        techStack: ["React", "Vite", "Chart.js", "OpenRouter AI", "SheetJS", "CSS"],
+        category: "AI",
+        featured: true,
+        liveUrl: "https://the-analyst-nine.vercel.app/",
+        githubUrl: "https://github.com/varunbadwaik/The-Analyst-",
+    },
+    {
         title: "AgentIQ — AI Knowledge Assistant",
         description:
             "RAG-powered assistant for multi-format enterprise documents with semantic search, ChromaDB vector database, and interactive Streamlit dashboard.",
