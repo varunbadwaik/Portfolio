@@ -84,16 +84,14 @@ export default function Navigation() {
                         }}
                         style={{
                             fontFamily: "var(--font-heading)",
-                            fontWeight: 800,
-                            fontSize: "1.5rem",
-                            background: "var(--gradient-hero)",
-                            backgroundClip: "text",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
+                            fontWeight: 600,
+                            fontSize: "1.4rem",
+                            color: "var(--brand-primary)",
                             textDecoration: "none",
+                            letterSpacing: "0.02em",
                         }}
                     >
-                        VB
+                        🌿 VB
                     </a>
 
                     {/* Desktop Links */}

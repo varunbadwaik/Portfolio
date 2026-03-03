@@ -128,7 +128,7 @@ function ProjectModal({
                                         alignItems: "center",
                                         gap: 4,
                                         padding: "4px 10px",
-                                        background: "linear-gradient(135deg, #f59e0b, #f97316)",
+                                        background: "linear-gradient(135deg, var(--brand-accent), var(--brand-accent-light))",
                                         color: "#fff",
                                         borderRadius: "var(--radius-full)",
                                         fontSize: "0.75rem",
@@ -226,7 +226,7 @@ export default function Projects() {
                 >
                     <h2 className="section-title">Featured Projects</h2>
                     <p className="section-subtitle">
-                        A selection of projects that showcase my skills and passion for building
+                        Some of the work I’m most proud of
                     </p>
                 </motion.div>
 
@@ -305,7 +305,7 @@ export default function Projects() {
                                             alignItems: "center",
                                             gap: 4,
                                             padding: "4px 10px",
-                                            background: "linear-gradient(135deg, #f59e0b, #f97316)",
+                                            background: "linear-gradient(135deg, var(--brand-accent), var(--brand-accent-light))",
                                             color: "#fff",
                                             borderRadius: "var(--radius-full)",
                                             fontSize: "0.75rem",
@@ -315,7 +315,7 @@ export default function Projects() {
                                         <FiStar size={12} /> Featured
                                     </div>
                                 )}
-                                <span style={{ opacity: 0.5 }}>
+                                <span style={{ opacity: 0.5, fontSize: "2.5rem" }}>
                                     {project.category === "AI" ? "🤖" : project.category === "Data" ? "📊" : "⚡"}
                                 </span>
                             </div>

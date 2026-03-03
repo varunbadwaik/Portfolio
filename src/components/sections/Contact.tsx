@@ -95,7 +95,7 @@ export default function Contact() {
                 >
                     <h2 className="section-title">Get In Touch</h2>
                     <p className="section-subtitle">
-                        Have a question or want to work together? Drop me a message!
+                        I’d love to hear from you — whether it’s a project idea, a question, or just a friendly hello.
                     </p>
                 </motion.div>
 

@@ -26,7 +26,7 @@ const education = [
     },
 ];
 
-const interests = ["🤖 Generative AI", "📊 Data Analytics", "🧠 Machine Learning", "🔧 Automation", "🌍 Open Source"];
+const interests = ["🤖 Generative AI", "📊 Data Analytics", "🧠 Machine Learning", "🔧 Automation", "🌱 Open Source"];
 
 export default function About() {
     const ref = useRef(null);
@@ -42,7 +42,7 @@ export default function About() {
                 >
                     <h2 className="section-title">About Me</h2>
                     <p className="section-subtitle">
-                        Get to know the person behind the code
+                        A bit about who I am and what drives me
                     </p>
                 </motion.div>
 
@@ -65,11 +65,11 @@ export default function About() {
                             <h3
                                 style={{
                                     fontFamily: "var(--font-heading)",
-                                    fontSize: "1.4rem",
+                                    fontSize: "1.3rem",
                                     marginBottom: 16,
                                 }}
                             >
-                                Hello! 👋
+                                Hello there 🌿
                             </h3>
                             <p
                                 style={{

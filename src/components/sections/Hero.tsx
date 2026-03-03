@@ -1,43 +1,45 @@
 "use client";
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import { FiArrowDown, FiMail } from "react-icons/fi";
 
 const roles = [
-    "AI Engineer",
-    "Data Analytics Enthusiast",
+    "AI & ML Enthusiast",
     "Full-Stack Developer",
-    "Gen AI Explorer",
+    "Data Analytics Explorer",
+    "Problem Solver",
 ];
 
 export default function Hero() {
-    const [roleIndex, setRoleIndex] = useState(0);
-    const [text, setText] = useState("");
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
+    const [currentRole, setCurrentRole] = useState(0);
+    const [displayText, setDisplayText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
 
     useEffect(() => {
-        const currentRole = roles[roleIndex];
-        let timeout: ReturnType<typeof setTimeout>;
+        const role = roles[currentRole];
+        let timeout: NodeJS.Timeout;
 
-        if (!isDeleting && text === currentRole) {
-            timeout = setTimeout(() => setIsDeleting(true), 2000);
-        } else if (isDeleting && text === "") {
+        if (!isDeleting && displayText === role) {
+            timeout = setTimeout(() => setIsDeleting(true), 2200);
+        } else if (isDeleting && displayText === "") {
             setIsDeleting(false);
-            setRoleIndex((prev) => (prev + 1) % roles.length);
+            setCurrentRole((prev) => (prev + 1) % roles.length);
         } else {
-            timeout = setTimeout(
-                () => {
-                    setText(
-                        isDeleting
-                            ? currentRole.substring(0, text.length - 1)
-                            : currentRole.substring(0, text.length + 1)
-                    );
-                },
-                isDeleting ? 40 : 80
-            );
+            const speed = isDeleting ? 40 : 70;
+            timeout = setTimeout(() => {
+                setDisplayText(
+                    isDeleting ? role.substring(0, displayText.length - 1) : role.substring(0, displayText.length + 1)
+                );
+            }, speed);
         }
         return () => clearTimeout(timeout);
-    }, [text, isDeleting, roleIndex]);
+    }, [displayText, isDeleting, currentRole]);
+
+    const scrollTo = (id: string) => {
+        document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
+    };
 
     return (
         <section
@@ -47,190 +49,152 @@ export default function Hero() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                padding: "120px 24px 80px",
                 position: "relative",
                 overflow: "hidden",
-                padding: "120px 24px 80px",
             }}
         >
-            {/* Background gradient orbs */}
+            {/* Subtle nature background elements */}
             <div
                 style={{
                     position: "absolute",
-                    top: "-20%",
-                    right: "-10%",
-                    width: 600,
-                    height: 600,
-                    borderRadius: "50%",
-                    background:
-                        "radial-gradient(circle, rgba(99,102,241,0.15), transparent 70%)",
-                    filter: "blur(80px)",
+                    top: "10%",
+                    right: "8%",
+                    fontSize: "8rem",
+                    opacity: 0.04,
+                    transform: "rotate(15deg)",
                     pointerEvents: "none",
-                }}
-            />
-            <div
-                style={{
-                    position: "absolute",
-                    bottom: "-20%",
-                    left: "-10%",
-                    width: 500,
-                    height: 500,
-                    borderRadius: "50%",
-                    background:
-                        "radial-gradient(circle, rgba(6,182,212,0.12), transparent 70%)",
-                    filter: "blur(80px)",
-                    pointerEvents: "none",
-                }}
-            />
-
-            {/* Floating grid pattern */}
-            <div
-                style={{
-                    position: "absolute",
-                    inset: 0,
-                    backgroundImage:
-                        "radial-gradient(var(--border-primary) 1px, transparent 1px)",
-                    backgroundSize: "40px 40px",
-                    opacity: 0.3,
-                    pointerEvents: "none",
-                }}
-            />
-
-            <div
-                style={{
-                    maxWidth: 900,
-                    textAlign: "center",
-                    position: "relative",
-                    zIndex: 1,
+                    userSelect: "none",
                 }}
             >
-                {/* Badge */}
-                <motion.div
+                🌿
+            </div>
+            <div
+                style={{
+                    position: "absolute",
+                    bottom: "15%",
+                    left: "5%",
+                    fontSize: "6rem",
+                    opacity: 0.04,
+                    transform: "rotate(-20deg)",
+                    pointerEvents: "none",
+                    userSelect: "none",
+                }}
+            >
+                🍃
+            </div>
+
+            <div ref={ref} style={{ maxWidth: 720, textAlign: "center" }}>
+                {/* Greeting */}
+                <motion.p
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    style={{
+                        fontSize: "1rem",
+                        color: "var(--brand-primary)",
+                        fontWeight: 500,
+                        marginBottom: 16,
+                        letterSpacing: "0.04em",
+                    }}
                 >
-                    <span className="badge" style={{ fontSize: "0.85rem", padding: "6px 16px" }}>
-                        ✨ Available for opportunities
-                    </span>
-                </motion.div>
+                    Hello, I&apos;m
+                </motion.p>
 
                 {/* Name */}
                 <motion.h1
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.15 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.2 }}
                     style={{
-                        fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
-                        fontWeight: 900,
-                        marginTop: 24,
-                        marginBottom: 8,
+                        fontFamily: "var(--font-heading)",
+                        fontSize: "clamp(2.5rem, 6vw, 3.8rem)",
+                        fontWeight: 600,
+                        color: "var(--text-primary)",
+                        marginBottom: 16,
                         lineHeight: 1.1,
                     }}
                 >
-                    Hi, I&apos;m{" "}
-                    <span
-                        style={{
-                            background: "var(--gradient-hero)",
-                            backgroundClip: "text",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                        }}
-                    >
-                        Varun Badwaik
-                    </span>
+                    Varun Badwaik
                 </motion.h1>
 
                 {/* Typewriter */}
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.35 }}
                     style={{
-                        fontSize: "clamp(1.2rem, 2.5vw, 1.6rem)",
-                        color: "var(--text-secondary)",
+                        height: 40,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                         marginBottom: 24,
-                        minHeight: "2rem",
-                        fontFamily: "var(--font-heading)",
-                        fontWeight: 500,
                     }}
                 >
-                    {text}
                     <span
                         style={{
-                            borderRight: "3px solid var(--brand-primary)",
-                            marginLeft: 2,
-                            animation: "blink 1s step-end infinite",
+                            fontFamily: "var(--font-heading)",
+                            fontSize: "1.3rem",
+                            color: "var(--text-secondary)",
+                            fontWeight: 400,
                         }}
-                    />
+                    >
+                        {displayText}
+                        <span
+                            style={{
+                                borderRight: "2px solid var(--brand-primary)",
+                                marginLeft: 2,
+                                animation: "blink 1s steps(1) infinite",
+                            }}
+                        />
+                    </span>
                 </motion.div>
 
                 {/* Tagline */}
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.45 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.5 }}
                     style={{
-                        fontSize: "1.1rem",
+                        fontSize: "1.05rem",
+                        lineHeight: 1.8,
                         color: "var(--text-secondary)",
-                        maxWidth: 600,
-                        margin: "0 auto 40px",
-                        lineHeight: 1.7,
+                        maxWidth: 540,
+                        margin: "0 auto 36px",
                     }}
                 >
-                    Aspiring AI Engineer with hands-on experience in Generative AI, LLMs, and RAG systems.
-                    Focused on building scalable, real-world AI solutions with Python and modern AI frameworks.
+                    I enjoy building thoughtful digital experiences — from intelligent AI systems
+                    to clean, user-friendly interfaces. Let&apos;s create something meaningful together.
                 </motion.p>
 
-                {/* CTAs */}
+                {/* CTA */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                    style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}
-                >
-                    <a href="#projects" className="btn-primary">
-                        <FiArrowDown size={18} />
-                        View My Work
-                    </a>
-                    <a href="#contact" className="btn-secondary">
-                        <FiMail size={18} />
-                        Contact Me
-                    </a>
-                </motion.div>
-
-                {/* Scroll indicator */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.65 }}
                     style={{
-                        marginTop: 80,
                         display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        gap: 8,
+                        gap: 14,
+                        justifyContent: "center",
+                        flexWrap: "wrap",
                     }}
                 >
-                    <span style={{ fontSize: "0.8rem", color: "var(--text-tertiary)" }}>
-                        Scroll Down
-                    </span>
-                    <motion.div
-                        animate={{ y: [0, 8, 0] }}
-                        transition={{ repeat: Infinity, duration: 1.5 }}
-                    >
-                        <FiArrowDown size={20} style={{ color: "var(--text-tertiary)" }} />
-                    </motion.div>
+                    <button className="btn-primary" onClick={() => scrollTo("#projects")}>
+                        View My Work <FiArrowDown size={16} />
+                    </button>
+                    <button className="btn-secondary" onClick={() => scrollTo("#contact")}>
+                        <FiMail size={16} /> Say Hello
+                    </button>
                 </motion.div>
             </div>
 
             {/* Blink keyframe */}
             <style jsx global>{`
-        @keyframes blink {
-          50% {
-            border-color: transparent;
-          }
-        }
-      `}</style>
+                @keyframes blink {
+                    0%, 100% { opacity: 1; }
+                    50% { opacity: 0; }
+                }
+            `}</style>
         </section>
     );
 }

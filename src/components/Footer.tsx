@@ -44,25 +44,22 @@ export default function Footer() {
                     <h3
                         style={{
                             fontFamily: "var(--font-heading)",
-                            fontWeight: 800,
-                            fontSize: "1.4rem",
-                            background: "var(--gradient-hero)",
-                            backgroundClip: "text",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
+                            fontWeight: 600,
+                            fontSize: "1.3rem",
+                            color: "var(--brand-primary)",
                             marginBottom: 12,
                         }}
                     >
-                        Varun Badwaik
+                        🌿 Varun Badwaik
                     </h3>
                     <p
                         style={{
                             color: "var(--text-secondary)",
                             fontSize: "0.9rem",
-                            lineHeight: 1.6,
+                            lineHeight: 1.7,
                         }}
                     >
-                        Building AI-powered solutions and turning data into actionable insights.
+                        Crafting thoughtful AI solutions and turning data into meaningful insights.
                     </p>
                 </div>
 

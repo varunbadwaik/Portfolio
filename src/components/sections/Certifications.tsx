@@ -5,8 +5,8 @@ import { FiExternalLink, FiAward } from "react-icons/fi";
 import { SiOracle, SiCisco } from "react-icons/si";
 
 const certCategories = [
-    { name: "Cloud", color: "#06b6d4" },
-    { name: "AI", color: "#8b5cf6" },
+    { name: "Cloud", color: "var(--brand-primary)" },
+    { name: "AI", color: "var(--brand-accent)" },
 ];
 
 const certifications = [

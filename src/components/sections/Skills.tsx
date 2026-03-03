@@ -82,7 +82,7 @@ export default function Skills() {
                 >
                     <h2 className="section-title">Skills & Technologies</h2>
                     <p className="section-subtitle">
-                        Technologies I work with to build AI-powered and data-driven solutions
+                        The tools and technologies I use to bring ideas to life
                     </p>
                 </motion.div>
 
@@ -163,7 +163,7 @@ export default function Skills() {
                                     </div>
                                     <span
                                         style={{
-                                            fontWeight: 600,
+                                            fontWeight: 500,
                                             fontSize: "0.95rem",
                                         }}
                                     >
@@ -173,8 +173,8 @@ export default function Skills() {
                                 <span
                                     style={{
                                         color: "var(--brand-primary)",
-                                        fontWeight: 700,
-                                        fontSize: "0.9rem",
+                                        fontWeight: 600,
+                                        fontSize: "0.85rem",
                                     }}
                                 >
                                     {skill.level}%
