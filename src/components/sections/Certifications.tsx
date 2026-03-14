@@ -2,7 +2,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { FiExternalLink, FiAward } from "react-icons/fi";
-import { SiOracle, SiCisco } from "react-icons/si";
+import { SiOracle, SiCisco, SiAnthropic } from "react-icons/si";
 
 const certCategories = [
     { name: "Cloud", color: "var(--brand-primary)" },
@@ -27,6 +27,15 @@ const certifications = [
         icon: SiCisco,
         verifyUrl: "https://www.netacad.com/",
         credentialId: "CISCO-AI-2026",
+    },
+    {
+        name: "Claude Code in Action",
+        issuer: "Anthropic",
+        date: "Mar 2026",
+        category: "AI",
+        icon: SiAnthropic,
+        verifyUrl: "https://verify.skilljar.com/c/bzwjcos33b8x",
+        credentialId: "bzwjcos33b8x",
     },
 ];
 
