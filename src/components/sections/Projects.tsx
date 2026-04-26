@@ -7,6 +7,18 @@ const projectCategories = ["All", "AI", "Data", "IoT"];
 
 const projects = [
     {
+        title: "FraudShield AI: Enterprise Security Platform",
+        description:
+            "Production-grade, real-time payment fraud detection platform mimicking an enterprise Security Operations Center (SOC).",
+        longDescription:
+            "Developed a production-ready fraud detection platform featuring a hybrid 3-layer ML ensemble (Isolation Forest, Logistic Regression, XGBoost) and an OpenRouter/LLaMA-powered Explainable AI (XAI) engine. Built a high-performance React dashboard with real-time WebSocket data streaming, animated model metrics, and a continuous reinforcement learning feedback loop.",
+        techStack: ["React", "FastAPI", "Python", "Scikit-Learn", "WebSockets", "LLMs"],
+        category: "AI",
+        featured: true,
+        liveUrl: "https://ai-powered-payment-fraud-detection-sooty.vercel.app/",
+        githubUrl: "https://github.com/varunbadwaik/AI-Powered-Payment-Fraud-Detection-System",
+    },
+    {
         title: "The Analyst — AI Data Intelligence",
         description:
             "AI-powered data intelligence platform that cleans, analyzes, visualizes, and exports datasets using free LLM models via OpenRouter.",
